@@ -10,10 +10,9 @@ int	main(int argc, char *argv[])
 	int	i;
 	int	j;
 
-	i = 0;
+	i = 1;
 	j = 0;
-	argc = 1;
-	while (i < argc)
+	while (i < argc + 1)
 	{
 		while (argv[i][j])
 		{
