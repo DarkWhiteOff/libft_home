@@ -28,9 +28,9 @@ char	*ft_strstr(char *str, char *tofind)
 		return (str);
 	while (str[i] != '\0')
 	{
-		while (tofind[j] != '\0')
+		while (tofind[j] == str[i + j])
 		{
-			if (str[i] == tofind[j])
+			if (tofind[j + 1] == '\0')
 			{
 				return(ft_cutfromhere(str, i));
 			}
@@ -45,6 +45,6 @@ int	main(void)
 {
 	char	*str = "Salut comment ca va ?";
 	char	*tofind = "c";
-	ft_strstr(str, tofind);
+	ft_strstr(str, tofind)
 	return (0);
 }
