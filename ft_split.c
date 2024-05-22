@@ -18,7 +18,7 @@ char **ft_split(char const *s, char c)
 	// malloc du double array
 	while (s[i] != '\0')
 	{
-		while (s[count] != c)
+		while (s[i] != c)
 			count++;
 		i += count;
 		count = 0;
@@ -28,18 +28,15 @@ char **ft_split(char const *s, char c)
 	array = (char **)malloc(sizeof(char *) * j);
 	array1count = j;
 	// malloc des simple array
-	i = 0;
-	j = 0;
 	count = 0;
 	while (s[i] != '\0')
 	{
-		while (s[count] != c)
+		while (s[i] != c)
 			count++;
 		array[j] = (char *)malloc(sizeof(char) * (count + 1));
 		i += count;
-		count += 0;
+		count = 0;
 		i++;
-		j++;
 	}
 	i = 0;
 	j = 0;
