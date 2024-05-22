@@ -1,3 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/22 15:32:19 by zamgar            #+#    #+#             */
+/*   Updated: 2024/05/22 15:34:28 by zamgar           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <stdlib.h>
+
 char	*ft_cutfromhere(char *str, int i)
 {
 	int		z;
@@ -15,6 +30,7 @@ char	*ft_cutfromhere(char *str, int i)
 		z++;
 	}
 	cutstr[z] = '\0';
+	return (cutstr);
 }
 
 char	*ft_strstr(char *str, char *tofind)
@@ -24,7 +40,7 @@ char	*ft_strstr(char *str, char *tofind)
 
 	i = 0;
 	j = 0;
-	if (*tofind[i] == '\0')
+	if (tofind[i] == '\0')
 		return (str);
 	while (str[i] != '\0')
 	{
@@ -37,14 +53,15 @@ char	*ft_strstr(char *str, char *tofind)
 			j++;
 		}
 		j = 0;
-		i++:
+		i++;
 	}
+	return (0);
 }
 
 int	main(void)
 {
 	char	*str = "Salut comment ca va ?";
-	char	*tofind = "c";
-	ft_strstr(str, tofind)
+	char	*tofind = "ca";
+	printf("%s", ft_strstr(str, tofind));
 	return (0);
 }

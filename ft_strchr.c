@@ -1,4 +1,18 @@
-char	*strchr(const char *s, int c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/22 12:35:37 by zamgar            #+#    #+#             */
+/*   Updated: 2024/05/22 13:29:35 by zamgar           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+//#include <stdio.h>
+
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
@@ -6,8 +20,16 @@ char	*strchr(const char *s, int c)
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-			return(s[i]);
+			return ((char *)&s[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
+
+/*int	main()
+{
+	char	s[50] = "";
+
+	printf("%s", ft_strchr(s, 'c')); 
+	return (0);
+}*/

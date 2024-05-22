@@ -1,14 +1,36 @@
-void	*memset(void *str, int c, size_t n)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/22 12:27:53 by zamgar            #+#    #+#             */
+/*   Updated: 2024/05/22 12:32:37 by zamgar           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+//#include <stdio.h>
+
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int		i;
-	char	*s;
+	size_t	i;
+	char	*ss;
 
 	i = 0;
-	s = str;
+	ss = (char *)s;
 	while (i < n)
 	{
-		s[i] = c;
+		ss[i] = c;
 		i++;
 	}
-	return (s);
+	return (ss);
 }
+
+/*int	main()
+{
+	char	s[50];
+
+	printf("%s", (char *)ft_memset(s, 'c', 10));
+	return (0);
+}*/
