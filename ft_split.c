@@ -65,8 +65,21 @@ int	main()
 	char	s[25] = "aaaaa/aaaaa/aaaaa/aaaaa";
 	char	c = '/';
 	char	**array;
+	int	i;
+	int	j;
 
+	i = 0;
+	j = 0;
 	array = ft_split(s, c);
-	//print
+	while (i != 4)
+	{
+		while (argv[i][j] != '\0')
+		{
+			write(1, &argv[i][j]);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
 	return (0);
-}	
+}
