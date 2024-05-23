@@ -2,65 +2,37 @@
 #include <unistd.h>
 #include <stdio.h>
 
-char	*ft_smple_arr_mall(char *array, char *s, char c);
+char	**ft_malloc_double_array(char **array, char *s, char c, int *array1count)
 {
 	int	i;
 	int	j;
-	int	count;
-	
-	i = 0;
-	j = 0;
-	count = 0;
-	// malloc des simple array
-	while (s[i] != c && s[i] != '\0')
-	{
-		count++;
-		i++;
-	}
-	array = (char *)malloc(sizeof(char) * (count + 1));
-	if (array == NULL)
-		return (NULL);
-	return (array)	
-}
-
-char **ft_split(char const *s, char c)
-{
-	int	i;
-	int	count;
-	int	j;
-	int	z;
-	char	**array;
-	int	array1count;
 
 	i = 0;
-	count = 0;
 	j = 0;
-	z = 0;
-	array1count = 0;
-	// malloc du double array
 	while (s[i] != '\0')
 	{
 		while (s[i] != c && s[i] != '\0')
 			i++;
-		if (s[i + 1] != '\0')
+		while (s[i] == c && s[i] != '\0')
 			i++;
 		j++;
+		(*array1count)++;
 	}
 	array = (char **)malloc(sizeof(char *) * j + 1);
 	if (array == NULL)
 		return (NULL);
-	array1count = j;
-	j = 0;
-	while (array[j] != array1count)
-	{
-		ft_smple_arr_mall(array[j], s, c);
-		j++;
-	}
-	
-	
+	return (array);
+}
+
+void	ft_malloc_simple_array(char **array, char *s, char c)
+{
+	int	i;
+	int	count;
+	int	j;
+
 	i = 0;
 	j = 0;
-	// malloc des simple array
+	count = 0;
 	while (s[i] != '\0')
 	{
 		while (s[i] != c && s[i] != '\0')
@@ -68,18 +40,24 @@ char **ft_split(char const *s, char c)
 			count++;
 			i++;
 		}
-		array[j] = (char *)malloc(sizeof(char) * (count + 1));
-		if (array[j] == NULL)
-			return (NULL);
-		count = 0;
-		if (s[i + 1] != '\0')
+		while (s[i] == c && s[i] != '\0')
 			i++;
+		array[j] = (char *)malloc(sizeof(char) * (count + 1));
+		count = 0;
 		j++;
 	}
+}
+
+void	ft_fill_array(char **array, char *s, char c, int *array1count)
+{
+	int	i;
+	int	count;
+	int	z;
+
 	i = 0;
-	j = 0;
 	count = 0;
-	while (i != array1count)
+	z = 0;
+	while (i != *array1count)
 	{
 		while (s[count] != c && s[count] != '\0')
 		{
@@ -88,12 +66,37 @@ char **ft_split(char const *s, char c)
 			z++;
 		}
 		array[i][z] = '\0';
+		while (s[count] == c && s[count] != '\0')
+			count++;
 		z = 0;
 		i++;
-		if (s[count + 1] != '\0')
-			count++;
 	}
-	array[array1count + 1] = NULL;
+}
+
+char **ft_split(char const *s, char c)
+{
+	int	i;
+	char	**array;
+	int	array1count;
+
+	i = 0;
+	array1count = 0;
+	// malloc du double array
+	array = ft_malloc_double_array(array, (char *)s, c, &array1count);
+	if (array == NULL)
+		return (NULL);
+	// malloc des simple array
+	ft_malloc_simple_array(array, (char *)s, c);
+	while (i < array1count)
+	{
+		if (array[i] == NULL)
+			return (NULL);
+		i++;
+	}
+	// remplissage des array
+	ft_fill_array(array, (char *)s, c, &array1count);
+	// dernier **array en NULL
+	array[i] = NULL;
 	return (array);
 }
 
@@ -109,7 +112,7 @@ int	main()
 	i = 0;
 	j = 0;
 	array = ft_split(s, c);
-	while (i != 8)
+	while (i < 9)
 	{
 		while (array[i][j] != '\0')
 		{

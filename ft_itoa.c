@@ -6,57 +6,71 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:37:29 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/23 13:02:22 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/23 14:57:49 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_putstr_in_string(char *str, char *strbase)
-{
-	
-}
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-char	*ft_putc_in_string(char *str, char c)
+int	ft_count(int n)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (str[i])
+	count = 0;
+	while (n != 0)
 	{
-		str[i] = c;
+		n = n / 10;
+		count++;
 	}
-	str[i] = '\0';
+	return (count + 1);
 }
 
 char	*ft_itoa(int n)
 {
+	int	i;
 	char	*str;
-	char	c;
-	
+	int	count;
+	int	check;
+
+	i = 0;
+	count = 0;
 	if (n == 0)
 	{
 		str = (char *)malloc(sizeof(char) * 1);
-		if (str == NULL)
-			return (NULL)
-		ft_putc_in_string(str, '0');
+		str[i] = 0;
+		str[i + 1] = '\0';
 		return (str);
 	}
-	if (n == -2147483648)
+	if (n == "-2147483948")
 	{
 		str = (char *)malloc(sizeof(char) * 11);
-		if (str == NULL)
-			return (NULL)
-		str = "-2147483648";
-		return (str);
+		str[check] = '\0';
+		n *= -1;
+		ft_itoa(n/10);
+		ft_itoa(n%10);
 	}
 	if (n < 0)
 	{
-		n *= -1;
-		while (n != 0)
-		{
-			c = c + (n / 10) + '0';
-		}
+		n *= 1;
+		count = ft_count(n);
+		if (str[check] != '\0')
+			str = (char *)malloc(sizeof(char) * count + 1);
+		str[check] = '\0';
 	}
-
+	if (n >= 10)
+	{
+		count = ft_count(n);
+		if (str[check] != '\0')
+			str = (char *)malloc(sizeof(char) * count);
+		str[check] = '\0';
+		ft_itoa(n/10);
+		ft_itoa(n%10);
+	}
+	else
+		str[i] = n + '0';
+		str[i + 1] = '\0';
 	return (str);
 }
 
@@ -64,7 +78,7 @@ int	main()
 {
 	int	n;
 
-	n = ;
+	n = 1558;
 
 	ft_itoa(n);
 
