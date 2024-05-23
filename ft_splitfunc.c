@@ -2,6 +2,27 @@
 #include <unistd.h>
 #include <stdio.h>
 
+char	*ft_smple_arr_mall(char *array, char *s, char c);
+{
+	int	i;
+	int	j;
+	int	count;
+	
+	i = 0;
+	j = 0;
+	count = 0;
+	// malloc des simple array
+	while (s[i] != c && s[i] != '\0')
+	{
+		count++;
+		i++;
+	}
+	array = (char *)malloc(sizeof(char) * (count + 1));
+	if (array == NULL)
+		return (NULL);
+	return (array)	
+}
+
 char **ft_split(char const *s, char c)
 {
 	int	i;
@@ -29,6 +50,14 @@ char **ft_split(char const *s, char c)
 	if (array == NULL)
 		return (NULL);
 	array1count = j;
+	j = 0;
+	while (array[j] != array1count)
+	{
+		ft_smple_arr_mall(array[j], s, c);
+		j++;
+	}
+	
+	
 	i = 0;
 	j = 0;
 	// malloc des simple array
