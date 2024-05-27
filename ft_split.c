@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_splitfunc.c                                     :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:46:59 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/24 15:47:03 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 14:32:50 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,13 +138,13 @@ char **ft_split(char const *s, char c)
 	// remplissage des array
 	ft_fill_array(array, (char *)s, c, &array1count);
 	// dernier **array en NULL
-	array[i] = NULL;
+	//array[i] = NULL;
 	return (array);
 }
 
 int	main()
 {
-	char	s[30] = "___________________";
+	char	s[50] = "__Bonjour__je______mappelle_caca____";
 	char	c = '_';
 	char	**array;
 	int	i;
@@ -154,7 +154,7 @@ int	main()
 	i = 0;
 	j = 0;
 	array = ft_split(s, c);
-	while (i < 1)
+	while (array != NULL)
 	{
 		while (array[i][j] != '\0')
 		{

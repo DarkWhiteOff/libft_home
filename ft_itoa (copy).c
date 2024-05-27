@@ -6,11 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:37:29 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 17:33:51 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 16:22:50 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
 
 int	ft_count(int n)
@@ -62,21 +62,6 @@ int	ft_count_units(int temp)
 	return (temp * iter);
 }
 
-char	*ft_min(char *str, int i, int n)
-{
-	if (i > 0)
-	{
-		str[i] = n + '0';
-		str[i + 1] = '\0';
-		return (str);
-	}
-	else
-	{
-		str = "-2147483648";
-		return ((char *)str);
-	}
-}
-
 char	*ft_itoa(int n)
 {
 	int		i;
@@ -92,7 +77,10 @@ char	*ft_itoa(int n)
 	if (n == 0)
 		str[0] = '0';
 	if (n == -2147483648)
-		return (ft_min(str, i, n));
+	{
+		str = "-2147483648";
+		return (str);
+	}
 	if (n < 0)
 	{
 		str[0] = '-';
@@ -104,19 +92,22 @@ char	*ft_itoa(int n)
 		temp = n;
 		while (!(n >= 0 && n <= 9))
 			n = n / 10;
-		str[i] = n + '0';
+		if (n >= 1 && n <= 9)
+			str[i] = n + '0';
 		n = temp - ft_count_units(temp);
 		i++;
 	}
-	ft_min(str, i, n);
+	if (n >= 0 && n <= 9)
+		str[i] = n + '0';
+	str[i + 1] = '\0';
 	return (str);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	n;
 
 	n = 1558;
 	printf("%s", ft_itoa(n));
 	return (0);
-}
+}*/

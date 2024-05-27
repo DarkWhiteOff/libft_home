@@ -6,29 +6,23 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 11:43:08 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/22 12:01:58 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 17:44:25 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 	char	*s;
 	char	*d;
-	//char	*temp;
+	char	*temp;
 
 	i = 0;
 	s = (char *)src;
 	d = (char *)dest;
-	/*temp[n] = '\0';
-	while (i < n)
-	{
-		temp[i] = 0;
-		i++;
-	}
-	i = 0;*/
+	temp = s;
 	while (s[i] != '\0' && i < n)
 	{
 		temp[i] = s[i];
@@ -43,11 +37,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (d);
 }
 
-int	main()
+/*int	main(void)
 {
 	char	src[50] = "Bonjour";
 	char	dest[50];
 
 	printf("%s", (char *)ft_memmove(dest, src, 7));
 	return (0);
-}
+}*/

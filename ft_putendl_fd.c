@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/27 18:22:08 by zamgar            #+#    #+#             */
+/*   Updated: 2024/05/27 18:22:29 by zamgar           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-#include <stdio.h>
+//#include <stdio.h>
 
 void	ft_putchar_fd(char c, int fd)
 {
@@ -19,11 +31,11 @@ void	ft_putendl_fd(char *str, int fd)
 	ft_putchar_fd('\n', fd);
 }
 
-int	main()
+/*int	main()
 {
 	char	str[15] = "BonjourOui";
 	char	*oui;
 
 	oui = ft_putendl_fd(str, 1);
 	printf("%s", oui);
-}
+}*/
