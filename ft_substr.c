@@ -6,11 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:14:40 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/22 16:36:59 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:19:12 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 //#include <stdio.h>
 
 char	*ft_substr(char const *str, unsigned int start, size_t len)

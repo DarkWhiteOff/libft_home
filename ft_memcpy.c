@@ -6,10 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 11:08:48 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/22 11:32:36 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:23:39 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 //#include <stdio.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)

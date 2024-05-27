@@ -6,12 +6,12 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:35:42 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 18:18:26 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:17:01 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 //#include <stdio.h>
-#include <stdlib.h>
 
 int	ft_set_check(char *set, char c)
 {

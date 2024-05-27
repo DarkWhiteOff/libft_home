@@ -6,10 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 12:08:27 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/22 13:48:31 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:23:52 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 //#include <stdio.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)

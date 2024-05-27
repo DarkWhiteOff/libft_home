@@ -6,10 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:54:37 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/22 16:02:10 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:13:58 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 //#include <stdio.h>
 
 int	ft_strlen(char *str)

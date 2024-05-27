@@ -6,12 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:37:29 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 17:33:51 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:23:04 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_count(int n)
 {

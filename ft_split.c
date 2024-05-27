@@ -6,12 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:46:59 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 14:32:50 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:11:33 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 #include <stdio.h>
 
 char	**ft_malloc_double_array(char **array, char *s, char c, int *array1count)

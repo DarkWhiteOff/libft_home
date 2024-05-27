@@ -6,10 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:50:48 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/22 13:59:28 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:20:48 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 //#include <stdio.h>
 
 void	ft_bzero(void *str, size_t n)

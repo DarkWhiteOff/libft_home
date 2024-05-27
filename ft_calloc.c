@@ -6,9 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:15:32 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 16:05:52 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:21:34 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*calloc(size_t nmemb, size_t size)
 {

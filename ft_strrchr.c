@@ -6,10 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:48:53 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/22 14:59:40 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:16:36 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 //#include <stdio.h>
 
 int	ft_check_other_c(char *str, int c)

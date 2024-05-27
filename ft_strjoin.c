@@ -6,11 +6,11 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:02:06 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 18:30:27 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:12:55 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 //#include <stdio.h>
 
 char	*ft_strcat(char *dest, char *src)
