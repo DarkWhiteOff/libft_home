@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:02:06 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 19:12:55 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/28 16:40:10 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 

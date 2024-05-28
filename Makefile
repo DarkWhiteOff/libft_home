@@ -6,13 +6,11 @@
 #    By: zamgar <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/15 14:24:43 by zamgar            #+#    #+#              #
-#    Updated: 2024/05/28 12:25:41 by zamgar           ###   ########.fr        #
+#    Updated: 2024/05/28 17:05:45 by zamgar           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-
-FLAGS = -Wall -Wextra -Werror
 
 SRC =	ft_atoi.c \
 	ft_bzero.c \
@@ -38,7 +36,6 @@ SRC =	ft_atoi.c \
 	ft_split.c \
 	ft_strchr.c \
 	ft_strdup.c \
-	ft_striteri.c \
 	ft_strjoin.c \
 	ft_strlcat.c \
 	ft_strlcpy.c \
@@ -76,7 +73,6 @@ BINARYFILES =	ft_atoi.o \
 		ft_split.o \
 		ft_strchr.o \
 		ft_strdup.o \
-		ft_striteri.o \
 		ft_strjoin.o \
 		ft_strlcat.o \
 		ft_strlcpy.o \
@@ -92,8 +88,8 @@ BINARYFILES =	ft_atoi.o \
 
 all: $(NAME)
 
-$(NAME) :
-	gcc $(FLAGS) -c $(SRC) && ar rc $(NAME) $(BINARYFILES)
+$(NAME) : $(BINARYFILES)
+	ar rc $(NAME) $(BINARYFILES)
 
 clean:
 	/bin/rm -f $(BINARYFILES)

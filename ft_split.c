@@ -6,144 +6,127 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:46:59 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 19:11:33 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/28 16:55:22 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 char	**ft_malloc_double_array(char **array, char *s, char c, int *array1count)
 {
 	int	i;
-	int	j;
-	int 	temp;
 
 	i = 0;
-	j = 0;
-	temp = 0;
 	while (s[i] != '\0')
 	{
-		while (s[i] != c && s[i] != '\0')
-			i++;
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		temp = i;
-		i--;
-		while (s[i] == c && i != 0)
-			i--;
 		if (s[i] != c)
 		{
-			j++;
+			while (s[i] != c && s[i] != '\0')
+			{
+				i++;
+			}
 			(*array1count)++;
 		}
-		i = temp;
+		i++;
 	}
-	array = (char **)malloc(sizeof(char *) * j + 1);
-	if (array == NULL)
-		return (NULL);
+	array = (char **)malloc(sizeof(char *) * (*array1count) + 1);
 	return (array);
 }
 
-void	ft_malloc_simple_array(char **array, char *s, char c)
+void	ft_free(char **array, int i)
 {
-	int	i;
-	int	count;
-	int	j;
-	int	temp;
-
-	i = 0;
-	j = 0;
-	count = 0;
-	temp = 0;
-	while (s[i] != '\0')
+	while (i > 0)
 	{
-		while (s[i] != c && s[i] != '\0')
-		{
-			count++;
-			i++;
-		}
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		temp = i;
+		free(array[i]);
 		i--;
-		while (s[i] == c && i != 0)
-			i--;
-		i = temp;
-		if (s[i] != c && count != 0)
-		{
-			array[j] = (char *)malloc(sizeof(char) * (count + 1));
-			j++;
-		}
-		count = 0;
 	}
+	free(array);
 }
 
-void	ft_fill_array(char **array, char *s, char c, int *array1count)
+void	ft_malloc_simple_array(char **array, char *s, char c, int *array1count)
 {
 	int	i;
 	int	count;
 	int	z;
-	int	temp;
 
 	i = 0;
 	count = 0;
 	z = 0;
-	temp = 0;
-	while (i != *array1count)
+	while (s[i] != '\0' && z < *array1count)
 	{
-		while (s[count] != c && s[count] != '\0')
+		if (s[i] != c)
 		{
-			array[i][z] = s[count];
-			count++;
+			while (s[i] != c && s[i] != '\0')
+			{
+				count++;
+				i++;
+			}
+			array[z] = (char *)malloc(sizeof(char) * count + 1);
+			if (array[z] == NULL)
+				ft_free(array, z);
+			count = 0;
 			z++;
 		}
-		while (s[count] == c && s[count] != '\0')
-			count++;
-		temp = count;
-		count--;
-		while (s[count] == c && count != 0)
-			count--;
-		count = temp;
-		if (s[count] != c && z != '\0')
-		{
-			array[i][z] = '\0';
-			i++;
-		}
-		z = 0;
+		i++;
 	}
 }
 
-char **ft_split(char const *s, char c)
+void	ft_fill_array(char **array, char *s, char c)
 {
 	int	i;
-	char	**array;
+	int	z;
+	int	j;
+
+	i = 0;
+	z = 0;
+	j = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c)
+		{
+			while (s[i] != c && s[i] != '\0')
+			{
+				array[z][j] = s[i];
+				i++;
+				j++;
+			}
+			array[z][j] = '\0';
+			j = 0;
+			z++;
+		}
+		i++;
+	}
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int	i;
+	char		**array;
 	int	array1count;
 
 	i = 0;
 	array1count = 0;
-	// malloc du double array
 	array = ft_malloc_double_array(array, (char *)s, c, &array1count);
 	if (array == NULL)
 		return (NULL);
-	// malloc des simple array
-	ft_malloc_simple_array(array, (char *)s, c);
-	while (i < array1count)
+	ft_malloc_simple_array(array, (char *)s, c, &array1count);
+	/*while (i < array1count)
 	{
 		if (array[i] == NULL)
 			return (NULL);
 		i++;
-	}
+	}*/
 	// remplissage des array
-	ft_fill_array(array, (char *)s, c, &array1count);
+	ft_fill_array(array, (char *)s, c);
 	// dernier **array en NULL
-	//array[i] = NULL;
+	//array[i] = 0;
 	return (array);
 }
 
-int	main()
+/*int	main()
 {
-	char	s[50] = "__Bonjour__je______mappelle_caca____";
+	char	s[50] = "UN_DEUX_TROIS";
 	char	c = '_';
 	char	**array;
 	int	i;
@@ -153,16 +136,11 @@ int	main()
 	i = 0;
 	j = 0;
 	array = ft_split(s, c);
-	while (array != NULL)
+
+	while (i < )
 	{
-		while (array[i][j] != '\0')
-		{
-			write(1, &array[i][j], 1);
-			j++;
-		}
-		write(1, &n, 1);
-		j = 0;
+		printf("%s\n", array[i]);
 		i++;
 	}
 	return (0);
-}
+}*/

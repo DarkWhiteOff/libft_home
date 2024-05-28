@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:37:29 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/28 13:43:50 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/28 16:30:27 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_count_units(int temp)
 
 char	*ft_min_and_little(char *str, int i, int n)
 {
-	if (i > 0 || n >= 1 && n <= 9)
+	if (i > 0 || (n >= 1 && n <= 9))
 	{
 		str[i] = n + '0';
 		str[i + 1] = '\0';

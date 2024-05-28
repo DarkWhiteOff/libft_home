@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:14:40 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 19:19:12 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/28 16:44:17 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	int		i;
-	char	*newstr;
+	size_t		i;
+	char		*newstr;
 
 	i = 0;
 	while (str[start] != '\0' && i < len)
