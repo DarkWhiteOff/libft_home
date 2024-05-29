@@ -13,11 +13,15 @@
 #include "libft.h"
 #include <stdio.h>
 
-char	**ft_malloc_double_array(char **array, char *s, char c, int *array1count)
+int	ft_count_double_array(char **array, char *s, char c)
 {
 	int	i;
+	int	count;
 
 	i = 0;
+	count = 0;
+	if (s == NULL)
+		return (0);
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)
@@ -26,15 +30,14 @@ char	**ft_malloc_double_array(char **array, char *s, char c, int *array1count)
 			{
 				i++;
 			}
-			(*array1count)++;
+			count++;
 		}
 		i++;
 	}
-	array = (char **)malloc(sizeof(char *) * (*array1count) + 1);
-	return (array);
+	return (count);
 }
 
-void	ft_free(char **array, int i)
+char	**ft_free(char **array, int i)
 {
 	while (i > 0)
 	{
@@ -42,34 +45,25 @@ void	ft_free(char **array, int i)
 		i--;
 	}
 	free(array);
+	return (0);
 }
 
-void	ft_malloc_simple_array(char **array, char *s, char c, int *array1count)
+int	ft_count_simple_array(char **array, char *s, char c, int *temp)
 {
 	int	i;
 	int	count;
-	int	z;
 
-	i = 0;
+	i = *temp;
 	count = 0;
-	z = 0;
-	while (s[i] != '\0' && z < *array1count)
+	while (s[i] == c)
+		i++;
+	while (s[i] != c && s[i] != '\0')
 	{
-		if (s[i] != c)
-		{
-			while (s[i] != c && s[i] != '\0')
-			{
-				count++;
-				i++;
-			}
-			array[z] = (char *)malloc(sizeof(char) * count + 1);
-			if (array[z] == NULL)
-				ft_free(array, z);
-			count = 0;
-			z++;
-		}
+		count++;
 		i++;
 	}
+	*temp = i;
+	return (count);
 }
 
 void	ft_fill_array(char **array, char *s, char c)
@@ -103,42 +97,41 @@ char	**ft_split(char const *s, char c)
 {
 	int	i;
 	char		**array;
-	int	array1count;
+	int	count;
+	int	count2;
+	int	temp;
 
 	i = 0;
-	array1count = 0;
-	array = ft_malloc_double_array(array, (char *)s, c, &array1count);
-	if (array == NULL)
+	temp = 0;
+	count = ft_count_double_array(array, (char *)s, c);
+	array = (char **)malloc(sizeof(char *) * count + 1);
+	if (array == NULL || s == NULL)
 		return (NULL);
-	ft_malloc_simple_array(array, (char *)s, c, &array1count);
-	/*while (i < array1count)
+	while (i < count)
 	{
+		count2 = ft_count_simple_array(array, (char *)s, c, &temp);
+		array[i] = (char *)malloc(sizeof(char) * count2 + 1);
 		if (array[i] == NULL)
-			return (NULL);
+			return(ft_free(array, i));	
 		i++;
-	}*/
-	// remplissage des array
+	}
 	ft_fill_array(array, (char *)s, c);
-	// dernier **array en NULL
-	array[array1count] = NULL;
+	array[i] = NULL;
 	return (array);
 }
 
 int	main()
 {
-	char	s[50] = "Ligne1\nLigne2\nLigne3";
+	char	s[22] = "_UNDEUXTROIS";
 
-	char	c = '\n';
+	char	c = '_';
 	char	**array;
 	int	i;
-	int	j;
-	char	n = '\n';
 
 	i = 0;
-	j = 0;
 	array = ft_split(s, c);
 
-	while (i != 4)
+	while (i != 12)
 	{
 		printf("%s\n", array[i]);
 		i++;
