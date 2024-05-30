@@ -6,13 +6,13 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:10:59 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 19:22:37 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/30 14:16:22 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprintable(int c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 12:35:37 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 19:11:49 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/30 15:16:41 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while ((char *)s)
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);
@@ -31,6 +31,6 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	s[50] = "";
 
-	printf("%s", ft_strchr(s, 'c')); 
+	printf("%s", ft_strchr(s, 's')); 
 	return (0);
 }*/

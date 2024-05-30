@@ -6,43 +6,37 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 11:43:08 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 19:25:16 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/30 14:49:45 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
-	char	*s;
-	char	*d;
-	char	*temp;
+	unsigned char	*s;
+	unsigned char	*d;
+	unsigned char	*temp;
 
 	i = 0;
-	s = (char *)src;
-	d = (char *)dest;
+	s = (unsigned char *)(src);
+	d = (unsigned char *)(dest);
 	temp = s;
-	while (s[i] != '\0' && i < n)
-	{
-		temp[i] = s[i];
-		i++;
-	}
-	i = 0;
-	while (temp[i] != '\0' && i < n)
+	while (i < n)
 	{
 		d[i] = temp[i];
 		i++;
 	}
-	return (d);
+	return (dest);
 }
 
-/*int	main(void)
+int	main(void)
 {
-	char	src[50] = "Bonjour";
-	char	dest[50];
+	unsigned char	dest[50];
+	unsigned char	src[40] = "lorem ipum dolor sit a";
 
-	printf("%s", (char *)ft_memmove(dest, src, 7));
+	printf("%s", (unsigned char *)ft_memmove(dest, src, 31));
 	return (0);
-}*/
+}

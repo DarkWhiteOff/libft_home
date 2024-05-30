@@ -6,12 +6,12 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:10:15 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 19:22:25 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/30 14:11:21 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 int	ft_isdigit(int c)
 {
@@ -20,7 +20,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	main()
+/*int	main()
 {
 	int i;
 	i = 'a';
@@ -30,4 +30,4 @@ int	main()
 		i++;
 	}
 	return (0);
-}
+}*/

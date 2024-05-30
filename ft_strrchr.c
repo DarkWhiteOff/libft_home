@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:48:53 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/27 19:16:36 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/30 15:28:01 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while ((char *)s)
 	{
 		if (s[i] == c)
 		{
@@ -41,7 +41,7 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 /*int	main()
