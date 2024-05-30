@@ -6,19 +6,31 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 12:35:37 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/30 15:16:41 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/30 18:48:54 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
 
+size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
 char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
 	i = 0;
-	while ((char *)s)
+	if (s[i] == '\0' && c != '\0')
+		return (NULL);
+	while ((char *)s && i < ft_strlen(s))
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);
@@ -26,8 +38,8 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-/*int	main()
+/*
+int	main()
 {
 	char	s[50] = "";
 

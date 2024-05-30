@@ -6,12 +6,12 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:37:29 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/28 16:30:27 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/30 18:05:18 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 int	ft_count(int n)
 {
@@ -102,11 +102,13 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	int	n;
-
-	n = 1558;
-	printf("%s", ft_itoa(n));
+	char	*res; 
+	
+	n = 543070;
+	res = ft_itoa(n);
+	printf("%s", res);
 	return (0);
-}*/
+}
