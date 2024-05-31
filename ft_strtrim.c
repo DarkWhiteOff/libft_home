@@ -5,15 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 16:35:42 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/30 17:56:12 by zamgar           ###   ########.fr       */
+/*   Created: 2024/05/31 15:40:14 by zamgar            #+#    #+#             */
+/*   Updated: 2024/05/31 17:19:08 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+//#include <stdio.h>
 
-int	ft_set_check(char *set, char c)
+size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+int	ft_set_check(const char *set, char c)
 {
 	int	i;
 
@@ -27,51 +37,64 @@ int	ft_set_check(char *set, char c)
 	return (1);
 }
 
-int	ft_count(char *s1, char *set)
+int	ft_check_beg(char const *str, char const *set)
 {
-	int	count;
 	int	i;
 
-	count = 0;
 	i = 0;
-	while (s1[i] != '\0')
-	{
-		if (ft_set_check(set, s1[i]) == 1)
-			count ++;
+	while (ft_set_check(set, str[i]) == 0)
 		i++;
+	return (i);
+}
+
+int	ft_check_end(char const *str, char const *set)
+{
+	int	i;
+	int	z;
+
+	i = 0;
+	z = 0;
+	while (str[i] != '\0')
+		i++;
+	i = i - 1;
+	while (ft_set_check(set, str[i]) == 0)
+	{
+		z++;
+		i--;
 	}
-	return (count + i);
+	return (z);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
-	int		j;
-	int		count;
+	int		z;
+	int		temp;
+	int		checkb;
+	int		checke;
 	char	*newstr;
 
-	i = 0;
-	j = 0;
-	count = ft_count((char *)s1, (char *)set);
-	newstr = (char *)malloc(sizeof(char) * count + 1);
-	while (s1[i] != '\0')
+	i = ft_strlen(s1);
+	checkb = ft_check_beg(s1, set);
+	checke = ft_check_end(s1, set);
+	newstr = (char *)malloc(sizeof(char) * (i - (checkb + checke)) + 1);
+	z = 0;
+	temp = checkb;
+	while (z < i - (checkb + checke))
 	{
-		if (ft_set_check((char *)set, (char)s1[i]) == 1)
-		{
-			newstr[j] = s1[i];
-			j++;
-		}
-		i++;
+		newstr[z] = s1[temp];
+		z++;
+		temp++;
 	}
-	newstr[i] = '\0';
+	newstr[z] = '\0';
 	return (newstr);
 }
 
-int	main()
+/*int	main()
 {
-	char	s1[50] = "lorem ipsum dolor sit amet";
-	char	set[50] = "te";
+	char	*s1 = "lorem ipsum dolor sit amet";
+	char	*set =  "tel";
 
 	printf("%s", ft_strtrim(s1, set));
 	return (0);
-}
+}*/

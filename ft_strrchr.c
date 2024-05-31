@@ -6,20 +6,32 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:48:53 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/30 18:47:39 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/31 13:36:09 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+size_t	ftft_strlen(const char *s, size_t c)
 {
-	int	i;
+	size_t  i;
 
 	i = 0;
-	while (s[i] != '\0')
-		i++;
+	if (c != '\0')
+	{
+		while ((char)s[i] != '\0')
+			i++;
+	}
+	if (c == '\0')
+	{
+		while ((char)s[i])
+		{
+			if (s[i + 1] == '\0')
+				i++;
+			i++;
+		}
+	}
 	return (i);
 }
 
@@ -42,9 +54,9 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	if (s[i] == '\0' && c != '\0')
-		return (0);
-	while ((char *)s && i < ft_strlen(s))
+	if (s[0] == '\0' && c == '\0')
+		return ((char *)&s[i]);
+	while ((char *)s && i < ftft_strlen(s, (size_t)c))
 	{
 		if (s[i] == c)
 		{
@@ -58,8 +70,8 @@ char	*ft_strrchr(const char *s, int c)
 
 /*int	main()
 {
-	char	s[30] = "okcokcccokokcaaaaaa";
+	char	s[30] = "";
 
-	printf("%s", ft_strrchr(s, 'c'));
+	printf("%s", ft_strrchr(s, '\0'));
 	return(0);
 }*/

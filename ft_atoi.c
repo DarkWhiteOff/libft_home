@@ -6,12 +6,12 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:08:33 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/30 16:59:56 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/31 15:13:53 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 int	ft_isspace(int c)
 {
@@ -32,12 +32,15 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	while (ft_isspace(str[i]))
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			sign *= -1;
+		sign *= -1;
 		i++;
 	}
+	else if (str[i] == '+')
+		i++;
+	if (!(str[i] >= '0' && str[i] <= '9'))
+			return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nbr = nbr * 10 + str[i] - '0';
@@ -46,10 +49,10 @@ int	ft_atoi(const char *str)
 	return (nbr * sign);
 }
 
-int	main()
+/*int	main() 
 {
-	const char	str[30] = "	 +--+---54fes";
+	const char	str[30] = "-+48";
 	printf("%d\n", ft_atoi(str));
 	printf("%d\n", atoi(str));
 	return (0);
-}
+}*/

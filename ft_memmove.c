@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 11:43:08 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/30 18:31:46 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/05/31 14:34:41 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,30 @@
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
-	unsigned char	*s;
-	unsigned char	*d;
-	unsigned char	*temp;
+	char	*s;
+	char	*d;
+	char	*temp;
 
 	i = 0;
-	s = (unsigned char *)(src);
-	d = (unsigned char *)(dest);
+	s = (char *)(src);
+	d = (char *)(dest);
 	temp = s;
 	while (i < n)
 	{
 		d[i] = temp[i];
 		i++;
+		//printf("%c", temp[i]);
 	}
+	//printf("\n");
 	return (dest);
 }
 
 int	main(void)
 {
-	unsigned char	dest[50];
-	unsigned char	src[40] = "lorem ipum dolor sit a";
+	char	dest[50];
+	char	src[40] = "lorem ipum dolor sit a";
 
-	printf("%s\n", (unsigned char *)ft_memmove(dest, src, 8));
-	printf("%s\n", (unsigned char *)memmove(dest, src, 8));
+	printf("%s\n\n", (char *)ft_memmove(dest, src, 8));
+	printf("%s\n", (char *)memmove(dest, src, 8));
 	return (0);
 }
