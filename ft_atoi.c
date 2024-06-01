@@ -40,7 +40,7 @@ int	ft_atoi(const char *str)
 	else if (str[i] == '+')
 		i++;
 	if (!(str[i] >= '0' && str[i] <= '9'))
-			return (0);
+		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nbr = nbr * 10 + str[i] - '0';

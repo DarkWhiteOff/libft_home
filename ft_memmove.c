@@ -11,31 +11,29 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <string.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
-	char	*s;
-	char	*d;
-	char	*temp;
+	unsigned char	*s;
+	unsigned char	*d;
+	unsigned char	*temp;
 
 	i = 0;
-	s = (char *)(src);
-	d = (char *)(dest);
+	s = (unsigned char *)(src);
+	d = (unsigned char *)(dest);
 	temp = s;
 	while (i < n)
 	{
 		d[i] = temp[i];
 		i++;
-		//printf("%c", temp[i]);
 	}
-	//printf("\n");
-	return (dest);
+	return (d);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	dest[50];
 	char	src[40] = "lorem ipum dolor sit a";
@@ -43,4 +41,4 @@ int	main(void)
 	printf("%s\n\n", (char *)ft_memmove(dest, src, 8));
 	printf("%s\n", (char *)memmove(dest, src, 8));
 	return (0);
-}
+}*/

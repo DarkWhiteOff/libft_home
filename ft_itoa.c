@@ -11,13 +11,15 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 int	ft_count(int n)
 {
 	int	count;
 
 	count = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		n *= -1;
@@ -31,84 +33,48 @@ int	ft_count(int n)
 	return (count);
 }
 
-int	ft_count_units(int temp)
+char	*ft_min(char *str)
 {
-	int	z;
-	int	i;
-	int	iter;
-
-	i = 0;
-	iter = 10;
-	z = ft_count(temp);
-	while (i < (z - 2))
-	{
-		iter = iter * 10;
-		i++;
-	}
-	temp = temp / iter;
-	return (temp * iter);
-}
-
-char	*ft_min_and_little(char *str, int i, int n)
-{
-	if (i > 0 || (n >= 1 && n <= 9))
-	{
-		str[i] = n + '0';
-		str[i + 1] = '\0';
-		return (str);
-	}
-	else
-	{
-		str = "-2147483648";
-		return ((char *)str);
-	}
-}
-
-char	*ft_div(char *str, int *temp, int n, int i)
-{
-	*temp = n;
-	while (!(n >= 0 && n <= 9))
-		n = n / 10;
-	str[i] = n + '0';
-	return (str);
+	str = "-2147483648";
+	return ((char *)str);
 }
 
 char	*ft_itoa(int n)
 {
 	int		i;
-	int		temp;
 	char	*str;
 
-	i = 0;
-	str = (char *)malloc(sizeof(char) * ft_count(n) + 1);
+	i = ft_count(n);
+	str = (char *)malloc(sizeof(char) * i + 1);
 	if (str == NULL)
 		return (NULL);
 	if (n == 0)
 		str[0] = '0';
 	if (n == -2147483648)
-		return (ft_min_and_little(str, i, n));
+		return (ft_min(str));
 	if (n < 0)
 	{
 		str[0] = '-';
 		n *= -1;
-		i = 1;
 	}
+	str[i] = '\0';
 	while (n >= 10)
 	{
-		ft_div(str, &temp, n, i++);
-		n = temp - ft_count_units(temp);
+		str[i - 1] = n % 10 + '0';
+		n = n / 10;
+		i--;
 	}
-	ft_min_and_little(str, i, n);
+	str[i - 1] = n + '0';
 	return (str);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	n;
 	char	*res; 
 	
-	n = 543070;
+	n = 2147483647;
 	res = ft_itoa(n);
-	printf("%s", res);
+	printf("%s\n", res);
 	return (0);
-}
+}*/

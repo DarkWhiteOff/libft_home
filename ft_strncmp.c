@@ -11,28 +11,28 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <string.h>
 
-int     ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-        size_t  i;
+	size_t	i;
 	char	*ss1;
 	char	*ss2;
 
-        i = 0;
+	i = 0;
 	ss1 = (char *)s1;
 	ss2 = (char *)s2;
 	if (n == 0)
 		return (0);
 	n = n - 1;
-        while (ss1[i] == ss2[i] && ss1[i] != '\0' && ss2[i] != '\0' && i < n)
-                i++;
-        return ((unsigned char)ss1[i] - (unsigned char)ss2[i]);
+	while (ss1[i] == ss2[i] && ss1[i] != '\0' && ss2[i] != '\0' && i < n)
+		i++;
+	return ((unsigned char)ss1[i] - (unsigned char)ss2[i]);
 	//return (0)???;
 }
 
-int     main()
+/*int     main()
 {
         //const char s1[20] = "abcdefgh";
         //const char s2[20] = "abcdwxyz";
@@ -46,4 +46,4 @@ int     main()
         printf("%d\n", strncmp("abcdefgh", "", 0));
         printf("%d\n", strncmp("test\200", "test\0", 6));
 	return (0);
-}
+}*/
