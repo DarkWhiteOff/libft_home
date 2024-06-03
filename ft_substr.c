@@ -23,6 +23,22 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+int	ft_calc(char const *str, unsigned int start, size_t len)
+{
+	int	i;
+	
+	
+	i = 0;
+	if (len == 1)
+		return (1);
+	while (str[start] != '\0' && i < len)
+	{
+		i++;
+		start ++;
+	}
+	return (i);
+}
+
 char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
 	size_t		i;
@@ -33,12 +49,25 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	strlen = ft_strlen(str);
 	if (!str)
 		return (NULL);
-	if (len > strlen)
-		newstr = (char *)malloc(sizeof(char) * strlen + 1);
-	if (len <= strlen)
-		newstr = (char *)malloc(sizeof(char) * len + 1);
-	if (newstr == NULL)
-		return (NULL);
+	if (start > strlen || len <= 0)
+	{
+		newstr = (char *)malloc(sizeof(char) * 1);
+		if (newstr == NULL)
+			return (NULL);
+		newstr[0] = '\0';
+		return (newstr);
+	}
+	else
+	{
+		if (len > strlen)
+			newstr = (char *)malloc(sizeof(char) * strlen + 1);
+
+		if (len <= strlen)
+			newstr = (char *)malloc(sizeof(char) * (ft_calc(str, start, len)) + 1);
+
+		if (newstr == NULL)
+			return (NULL);
+	}
 	i = 0;
 	while (start < strlen && i < len)
 	{

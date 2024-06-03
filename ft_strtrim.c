@@ -44,6 +44,8 @@ int	ft_check_beg(char const *str, char const *set)
 	i = 0;
 	while (ft_set_check(set, str[i]) == 0)
 		i++;
+	if (i == ft_strlen(str))
+		return (0);
 	return (i);
 }
 
@@ -62,6 +64,8 @@ int	ft_check_end(char const *str, char const *set)
 		z++;
 		i--;
 	}
+	if (z + 1 == ft_strlen(str))
+		return (0);
 	return (z);
 }
 
@@ -92,8 +96,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 /*int	main()
 {
-	char	*s1 = "lorem ipsum dolor sit amet";
-	char	*set =  "tel";
+	char	*s1 = "   xxxtripouille   xxx";
+	char	*set =  " x";
 
 	printf("%s", ft_strtrim(s1, set));
 	return (0);

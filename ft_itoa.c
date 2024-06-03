@@ -20,6 +20,8 @@ int	ft_count(int n)
 	count = 0;
 	if (n == 0)
 		return (1);
+	if (n == -2147483648)
+		return (11);
 	if (n < 0)
 	{
 		n *= -1;
@@ -35,8 +37,19 @@ int	ft_count(int n)
 
 char	*ft_min(char *str)
 {
-	str = "-2147483648";
-	return ((char *)str);
+	str[0] = '-';
+	str[1] = '2';
+	str[2] = '1';
+	str[3] = '4';
+	str[4] = '7';
+	str[5] = '4';
+	str[6] = '8';
+	str[7] = '3';
+	str[8] = '6';
+	str[9] = '4';
+	str[10] = '8';
+	str[11] = '\0';
+	return (str);
 }
 
 char	*ft_itoa(int n)
