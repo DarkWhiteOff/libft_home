@@ -13,7 +13,7 @@
 #include "libft.h"
 //#include <stdio.h>
 
-size_t	ftft_strlen(const char *s, size_t c)
+size_t	ftft_strlen(const char *s, unsigned char c)
 {
 	size_t	i;
 
@@ -37,14 +37,16 @@ size_t	ftft_strlen(const char *s, size_t c)
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	unsigned char	cc;
 
 	i = 0;
-	if (s[0] == '\0' && c == '\0')
+	cc = (unsigned char)c;
+	if (s[0] == '\0' && cc == '\0')
 		return ((char *)&s[i]);
-	while ((char *)s && i < ftft_strlen(s, (size_t)c))
+	while ((char *)s && i < ftft_strlen(s, cc))
 	{
-		if (s[i] == c)
+		if (s[i] == cc)
 			return ((char *)&s[i]);
 		i++;
 	}
@@ -53,8 +55,14 @@ char	*ft_strchr(const char *s, int c)
 
 /*int	main()
 {
-	char	s[1] = "";
+	char	*s = "hhhgthlnfvzb";
+	char c = 126;
+	printf("%c", c);
 
-	printf("%s", ft_strchr(s, '\0')); 
+	printf("%s\n", ft_strchr(s, 't'));
+	printf("%s\n", ft_strchr(s, 'l'));
+	printf("%s\n", ft_strchr(s, 'z'));
+	printf("%s\n", ft_strchr(s, 0));
+	printf("%s\n\n", ft_strchr(s, 't' + 256));
 	return (0);
 }*/

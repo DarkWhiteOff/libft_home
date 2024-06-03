@@ -17,13 +17,13 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t	i;
-	char	*ss;
+	unsigned char	*ss;
 
 	i = 0;
-	ss = (char *)s;
+	ss = (unsigned char *)s;
 	while (i < n)
 	{
-		if (ss[i] == c)
+		if (ss[i] == (unsigned char)c)
 			return (&ss[i]);
 		i++;
 	}
@@ -33,9 +33,18 @@ void	*ft_memchr(const void *s, int c, size_t n)
 /*int	main()
 {
 	//unsigned char	s[50] = "okcok";
-	int	tab[7] = {-49, 49, 1, -1, 0, -2, 2};
+	char	s[] = {0, 1, 2, 3, 4, 5};
 
-	printf("%s\n\n", (char *)ft_memchr(tab, -1, 7));
-	printf("%s\n", (char *)memchr(tab, -1, 7));
+	printf("%s\n", (char *)ft_memchr(s, 0, 0));
+	printf("%s\n", (char *)ft_memchr(s, 0, 1));
+	printf("%s\n", (char *)ft_memchr(s, 2, 3));
+	printf("%s\n", (char *)ft_memchr(s, 6, 4));
+	printf("%s\n\n", (char *)ft_memchr(s, 2 + 256, 3));
+
+	printf("%s\n", (char *)memchr(s, 0, 0));
+        printf("%s\n", (char *)memchr(s, 0, 1));
+        printf("%s\n", (char *)memchr(s, 2, 3));
+        printf("%s\n", (char *)memchr(s, 6, 4));
+	printf("%s\n", (char *)memchr(s, 2 + 256, 3));
 	return (0);
 }*/

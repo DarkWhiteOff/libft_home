@@ -13,7 +13,7 @@
 #include "libft.h"
 //#include <stdio.h>
 
-size_t	ftft_strlen(const char *s, size_t c)
+size_t	ftft_strlen(const char *s, unsigned char c)
 {
 	size_t	i;
 
@@ -35,7 +35,7 @@ size_t	ftft_strlen(const char *s, size_t c)
 	return (i);
 }
 
-int	ft_check_other_c(char *str, int c)
+int	ft_check_other_c(char *str, unsigned char c)
 {
 	int	i;
 
@@ -51,16 +51,18 @@ int	ft_check_other_c(char *str, int c)
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	unsigned char	cc;
 
 	i = 0;
-	if (s[0] == '\0' && c == '\0')
+	cc = (unsigned char)c;
+	if (s[0] == '\0' && cc == '\0')
 		return ((char *)&s[i]);
-	while ((char *)s && i < ftft_strlen(s, (size_t)c))
+	while ((char *)s && i < ftft_strlen(s, (unsigned char)cc))
 	{
-		if (s[i] == c)
+		if (s[i] == cc)
 		{
-			if (ft_check_other_c((char *)&s[i + 1], c) == 0)
+			if (ft_check_other_c((char *)&s[i + 1], cc) == 0)
 				return ((char *)&s[i]);
 		}
 		i++;

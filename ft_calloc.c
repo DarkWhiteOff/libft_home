@@ -16,17 +16,19 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t	i;
-	char	*t;
+	void	*t;
+	char	*tt;
 
 	i = 0;
-	if (nmemb == 0 || size == 0)
+	t = malloc(nmemb * size);
+	if (nmemb < 0 && size < 0)
 		return (NULL);
-	t = malloc(sizeof(size) * nmemb);
+	tt = (char *)t;
 	if (t == NULL)
 		return (NULL);
-	while (i < nmemb)
+	while (i < nmemb * size)
 	{
-		t[i] = '\0';
+		tt[i] = 0;
 		i++;
 	}
 	return (t);

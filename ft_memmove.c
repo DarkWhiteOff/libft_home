@@ -14,9 +14,30 @@
 //#include <stdio.h>
 //#include <string.h>
 
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
+
+	i = 0;
+	d = (unsigned char *)(dest);
+	s = (unsigned char *)(src);
+	if (d == NULL || s == NULL)
+		return (NULL);
+	if (s == d || n == 0)
+		return (dest);
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
+}
+
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*s;
 	unsigned char	*d;
 	unsigned char	*temp;
@@ -25,20 +46,34 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	s = (unsigned char *)(src);
 	d = (unsigned char *)(dest);
 	temp = s;
-	while (i < n)
+	if (d == NULL || s == NULL)
+		return (NULL);
+	if (s == d || n == 0)
+		return (dest);
+	if (d < s)
+		return (ft_memcpy(dest, src, n));
+	else
 	{
-		d[i] = temp[i];
-		i++;
+		i = n;
+		while (i > 0)
+		{
+			d[i - 1] = temp[i - 1];
+			i--;
+		}
 	}
-	return (d);
+	return (dest);
 }
 
 /*int	main(void)
 {
-	char	dest[50];
-	char	src[40] = "lorem ipum dolor sit a";
+	char	*dest;
+	char	*src = "lorem ipum dolor sit amet";
+	char	s0[] = {0, 0, 0, 0, 0, 0, 0};
+	char	s[] = {65, 66, 67, 68, 69, 0, 45};
+	char	sr1[] = {67, 68, 67, 68, 69, 0, 45};
+	char	sr2[] = {67, 67, 68, 68, 69, 0, 45};
 
-	printf("%s\n\n", (char *)ft_memmove(dest, src, 8));
-	printf("%s\n", (char *)memmove(dest, src, 8));
+	printf("%s\n\n", (char *)ft_memmove(sr1 + 1, sr1, 2));
+	printf("%s\n", (char *)memmove(sr1 + 1, sr1, 2));
 	return (0);
 }*/

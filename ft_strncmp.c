@@ -29,7 +29,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (ss1[i] == ss2[i] && ss1[i] != '\0' && ss2[i] != '\0' && i < n)
 		i++;
 	return ((unsigned char)ss1[i] - (unsigned char)ss2[i]);
-	//return (0)???;
 }
 
 /*int     main()
