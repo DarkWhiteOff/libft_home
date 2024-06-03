@@ -37,8 +37,8 @@ size_t	ftft_strlen(const char *s, unsigned char c)
 
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
-	unsigned char	cc;
+	int					i;
+	unsigned char		cc;
 
 	i = 0;
 	cc = (unsigned char)c;

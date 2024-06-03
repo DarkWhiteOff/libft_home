@@ -26,8 +26,7 @@ size_t	ft_strlen(const char *s)
 int	ft_calc(char const *str, unsigned int start, size_t len)
 {
 	int	i;
-	
-	
+
 	i = 0;
 	if (len == 1)
 		return (1);
@@ -61,10 +60,8 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	{
 		if (len > strlen)
 			newstr = (char *)malloc(sizeof(char) * strlen + 1);
-
 		if (len <= strlen)
 			newstr = (char *)malloc(sizeof(char) * (ft_calc(str, start, len)) + 1);
-
 		if (newstr == NULL)
 			return (NULL);
 	}

@@ -15,11 +15,11 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
-	int	nmembb;
-	int	sizee;
-	void	*t;
-	unsigned char *tt;
+	size_t				i;
+	int					nmembb;
+	int					sizee;
+	void				*t;
+	unsigned char		*tt;
 
 	i = 0;
 	nmembb = (int)nmemb;

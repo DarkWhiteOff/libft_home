@@ -51,8 +51,8 @@ int	ft_check_other_c(char *str, unsigned char c)
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
-	unsigned char	cc;
+	int					i;
+	unsigned char		cc;
 
 	i = 0;
 	cc = (unsigned char)c;
