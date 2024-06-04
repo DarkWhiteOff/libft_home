@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 15:40:14 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/31 17:19:08 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/06/04 18:19:43 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		z;
-	int		temp;
 	int		checkb;
 	int		checke;
 	char	*newstr;
@@ -83,12 +82,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	checke = ft_check_end(s1, set);
 	newstr = (char *)malloc(sizeof(char) * (i - (checkb + checke)) + 1);
 	z = 0;
-	temp = checkb;
-	while (z < i - (checkb + checke))
+	i = i - (checkb + checke);
+	while (z < i)
 	{
-		newstr[z] = s1[temp];
+		newstr[z] = s1[checkb];
 		z++;
-		temp++;
+		checkb++;
 	}
 	newstr[z] = '\0';
 	return (newstr);

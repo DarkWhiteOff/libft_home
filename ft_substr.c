@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:14:40 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/30 17:16:06 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/06/04 18:35:14 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,34 +38,13 @@ int	ft_calc(char const *str, unsigned int start, size_t len)
 	return (i);
 }
 
-char	*ft_substr(char const *str, unsigned int start, size_t len)
+char	*ft_gen(char *newstr, char const *str, unsigned int start, size_t len)
 {
-	size_t		i;
-	size_t		strlen;
-	char		*newstr;
+	size_t	i;
+	size_t	strlen;
 
 	i = 0;
 	strlen = ft_strlen(str);
-	if (!str)
-		return (NULL);
-	if (start > strlen || len <= 0)
-	{
-		newstr = (char *)malloc(sizeof(char) * 1);
-		if (newstr == NULL)
-			return (NULL);
-		newstr[0] = '\0';
-		return (newstr);
-	}
-	else
-	{
-		if (len > strlen)
-			newstr = (char *)malloc(sizeof(char) * strlen + 1);
-		if (len <= strlen)
-			newstr = (char *)malloc(sizeof(char) * (ft_calc(str, start, len)) + 1);
-		if (newstr == NULL)
-			return (NULL);
-	}
-	i = 0;
 	while (start < strlen && i < len)
 	{
 		newstr[i] = str[start];
@@ -74,6 +53,34 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	}
 	newstr[i] = '\0';
 	return (newstr);
+}
+
+char	*ft_substr(char const *str, unsigned int start, size_t len)
+{
+	size_t		strlen;
+	char		*n;
+
+	strlen = ft_strlen(str);
+	if (!str)
+		return (NULL);
+	if (start > strlen || len <= 0)
+	{
+		n = (char *)malloc(sizeof(char) * 1);
+		if (n == NULL)
+			return (NULL);
+		n[0] = '\0';
+		return (n);
+	}
+	else
+	{
+		if (len > strlen)
+			n = (char *)malloc(sizeof(char) * strlen + 1);
+		if (len <= strlen)
+			n = (char *)malloc(sizeof(char) * (ft_calc(str, start, len)) + 1);
+		if (n == NULL)
+			return (NULL);
+	}
+	return (ft_gen(n, str, start, len));
 }
 
 /*int     main(void)

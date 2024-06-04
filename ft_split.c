@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:46:59 by zamgar            #+#    #+#             */
-/*   Updated: 2024/05/30 14:11:47 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/06/04 18:10:55 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_count_double_array(char *s, char c)
 
 	i = 0;
 	count = 0;
+	if (s == 0)
+		return (0);
 	if (s[i] == '\0')
 		return (0);
 	while (s[i] != '\0')
@@ -75,6 +77,8 @@ void	ft_fill_array(char **array, char *s, char c)
 	i = 0;
 	z = 0;
 	j = 0;
+	if (s == 0)
+		return ;
 	while (s[i] != '\0')
 	{
 		if (s[i] != c)
@@ -115,27 +119,28 @@ char	**ft_split(char const *s, char c)
 			return (ft_free(array, i));
 		i++;
 	}
-	ft_fill_array(array, (char *)s, c);
+	if (count > 0)
+		ft_fill_array(array, (char *)s, c);
 	array[i] = NULL;
-	if (array == NULL || s[i] == '\0')
-		return (array);
 	return (array);
 }
 
 /*int	main()
 {
-	char	s[100] = "";
-	char	c = 'z';
+	char	*s = "tripouille";
+	char	c = 0;
 	char	**array;
 	int	i;
 
 	i = 0;
 	array = ft_split(s, c);
-
-	while (i != 20)
-	{
-		printf("%s\n", array[i]);
-		i++;
-	}
+		//printf("%s\n", array[i + 1]);
+		printf("%s\n", array[i + 2]);
+		printf("%s\n", array[i + 3]);
+		printf("%s\n", array[i + 4]);
+		printf("%s\n", array[i + 5]);
+		printf("%s\n", array[i + 6]);
+	
+	ft_free(array, 2);
 	return (0);
 }*/

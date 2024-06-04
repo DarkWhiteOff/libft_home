@@ -6,7 +6,7 @@
 #    By: zamgar <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/15 14:24:43 by zamgar            #+#    #+#              #
-#    Updated: 2024/05/28 17:05:45 by zamgar           ###   ########.fr        #
+#    Updated: 2024/06/04 18:03:23 by zamgar           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,10 @@ SRC =	ft_atoi.c \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c
+	ft_toupper.c \
+	ft_striteri.c
 
-BINARYFILES =	ft_atoi.o \
+BFILES =	ft_atoi.o \
 		ft_bzero.o \
 		ft_calloc.o \
 		ft_isalnum.o \
@@ -84,15 +85,39 @@ BINARYFILES =	ft_atoi.o \
 		ft_strtrim.o \
 		ft_substr.o \
 		ft_tolower.o \
-		ft_toupper.o
+		ft_toupper.o \
+		ft_striteri.o
+		
+BONUS_SRC = 	ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c
+
+BONUS_BFILES =	ft_lstnew.o \
+		ft_lstadd_front.o \
+		ft_lstsize.o \
+		ft_lstlast.o \
+		ft_lstadd_back.o \
+		ft_lstdelone.o \
+		ft_lstclear.o \
+		ft_lstiter.o \
+		ft_lstmap.o
 
 all: $(NAME)
 
-$(NAME) : $(BINARYFILES)
-	ar rc $(NAME) $(BINARYFILES)
+$(NAME) : $(BFILES)
+	ar rc $(NAME) $(BFILES)
+
+bonus : $(BONUS_BFILES)
+	ar rc $(NAME) $(BONUS_BFILES)
 
 clean:
-	/bin/rm -f $(BINARYFILES)
+	/bin/rm -f $(BFILES)
 
 fclean: clean
 	/bin/rm -f $(NAME)
