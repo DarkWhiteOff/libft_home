@@ -14,9 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst->next != NULL)
+	while (lst != NULL)
 	{
-		lst->content = f(lst->content);
-		lst->next = lst->next + 1;
+		f(lst->content);
+		lst = lst->next;
 	}
 }

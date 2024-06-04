@@ -17,10 +17,10 @@ int	ft_lstsize(t_list *lst)
 	int	i;
 
 	i = 0;
-	while (lst->next != NULL)
+	while (lst != NULL)
 	{	
 		i++;
-		lst->next = lst->next + 1;
+		lst = lst->next;
 	}
 	return (i);
 }
