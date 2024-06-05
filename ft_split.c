@@ -6,7 +6,7 @@
 /*   By: zamgar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:46:59 by zamgar            #+#    #+#             */
-/*   Updated: 2024/06/05 14:32:06 by zamgar           ###   ########.fr       */
+/*   Updated: 2024/06/05 18:24:36 by zamgar           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 unsigned int	ft_count_double_array(char const *s, char c)
 {
-	int	i;
-	unsigned int	count;
+	int					i;
+	unsigned int		count;
 
 	i = 0;
 	count = 0;
@@ -49,7 +49,7 @@ char	**ft_free(char **array, int i)
 	return (NULL);
 }
 
-void	ft_count_simple_array(char const *s, char c, unsigned int *temp, unsigned int *temp2)
+void	ft_count_simple_array(char const *s, char c, int *temp, int *temp2)
 {
 	*temp = 0;
 	while (s[*temp2] != '\0' && s[*temp2] == c)
@@ -61,7 +61,7 @@ void	ft_count_simple_array(char const *s, char c, unsigned int *temp, unsigned i
 	}
 }
 
-void	ft_fill_array(char *array, char const *s, char c, unsigned int *temp2)
+void	ft_fill_array(char *array, char const *s, char c, int *temp2)
 {
 	int	i;
 	int	z;
@@ -69,8 +69,8 @@ void	ft_fill_array(char *array, char const *s, char c, unsigned int *temp2)
 	i = 0;
 	z = 0;
 	i = *temp2;
-	i = i -1;
-	while (s[i] != s[0] && s[i] != c)
+	i = i - 1;
+	while (i > 0 && s[i] != c)
 		i--;
 	while (s[i] != '\0' && s[i] == c)
 		i++;
@@ -85,14 +85,13 @@ void	ft_fill_array(char *array, char const *s, char c, unsigned int *temp2)
 
 char	**ft_split(char const *s, char c)
 {
-	unsigned int     i;
-	unsigned int	count;
-	unsigned int	temp;
-	unsigned int	temp2;
-	char    **array;
+	unsigned int		i;
+	unsigned int		count;
+	int					temp;
+	int					temp2;
+	char				**array;
 
 	i = 0;
-	temp = 0;
 	temp2 = 0;
 	if (!s)
 		return (NULL);
@@ -115,8 +114,8 @@ char	**ft_split(char const *s, char c)
 
 /*int     main()
 {
-        char    *s = 0;
-	char	c = 0;
+        char    *s = "l i dolor";
+	char	c = ' ';
 
 	char *invalidReadCheck; 
 	*invalidReadCheck = 0;
@@ -130,6 +129,12 @@ char	**ft_split(char const *s, char c)
 	printf("%s\n", array[3]);
 	printf("%s\n", array[4]);
 	printf("%s\n", array[5]);
+	printf("%s\n", array[6]);
+	printf("%s\n", array[7]);
+	printf("%s\n", array[8]);
+	printf("%s\n", array[9]);
+	printf("%s\n", array[10]);
+	printf("%s\n", array[11]);
 	if (array[1] == NULL)
 		printf("%s", array[1]);
 	if (array[2] == NULL)
@@ -146,5 +151,17 @@ char	**ft_split(char const *s, char c)
                 printf("%s", array[7]);
 	if (array[8] == NULL)
                 printf("%s", array[8]);
+	if (array[9] == NULL)
+                printf("%s", array[9]);
+	if (array[10] == NULL)
+                printf("%s", array[10]);
+	if (array[11] == NULL)
+                printf("%s", array[11]);
+	if (array[12] == NULL)
+                printf("%s", array[12]);
+	if (array[13] == NULL)
+                printf("%s", array[13]);
+	if (array[14] == NULL)
+                printf("%s", array[14]);
 	return (0);
 }*/
