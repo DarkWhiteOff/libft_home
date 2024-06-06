@@ -10,8 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
 SRC =	ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
@@ -19,9 +17,9 @@ SRC =	ft_atoi.c \
 	ft_isalpha.c \
 	ft_isascii.c \
 	ft_isdigit.c \
+	ft_islower.c \
 	ft_isprint.c \
 	ft_isspace.c \
-	ft_islower.c \
 	ft_isupper.c \
 	ft_itoa.c \
 	ft_memchr.c \
@@ -36,6 +34,7 @@ SRC =	ft_atoi.c \
 	ft_split.c \
 	ft_strchr.c \
 	ft_strdup.c \
+	ft_striteri.c \
 	ft_strjoin.c \
 	ft_strlcat.c \
 	ft_strlcpy.c \
@@ -47,8 +46,7 @@ SRC =	ft_atoi.c \
 	ft_strtrim.c \
 	ft_substr.c \
 	ft_tolower.c \
-	ft_toupper.c \
-	ft_striteri.c
+	ft_toupper.c
 
 BFILES =	ft_atoi.o \
 		ft_bzero.o \
@@ -57,9 +55,9 @@ BFILES =	ft_atoi.o \
 		ft_isalpha.o \
 		ft_isascii.o \
 		ft_isdigit.o \
+		ft_islower.o \
 		ft_isprint.o \
 		ft_isspace.o \
-		ft_islower.o \
 		ft_isupper.o \
 		ft_itoa.o \
 		ft_memchr.o \
@@ -74,6 +72,7 @@ BFILES =	ft_atoi.o \
 		ft_split.o \
 		ft_strchr.o \
 		ft_strdup.o \
+		ft_striteri.o \
 		ft_strjoin.o \
 		ft_strlcat.o \
 		ft_strlcpy.o \
@@ -85,41 +84,53 @@ BFILES =	ft_atoi.o \
 		ft_strtrim.o \
 		ft_substr.o \
 		ft_tolower.o \
-		ft_toupper.o \
-		ft_striteri.o
+		ft_toupper.o
 		
-BONUS_SRC = 	ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c
+BONUS_SRC =	ft_lstadd_back_bonus.c \
+		ft_lstadd_front_bonus.c \
+		ft_lstclear_bonus.c \
+		ft_lstdelone_bonus.c \
+		ft_lstiter_bonus.c \
+		ft_lstlast_bonus.c \
+	 	ft_lstnew_bonus.c \
+		ft_lstsize_bonus.c
 
-BONUS_BFILES =	ft_lstnew.o \
-		ft_lstadd_front.o \
-		ft_lstsize.o \
-		ft_lstlast.o \
-		ft_lstadd_back.o \
-		ft_lstdelone.o \
-		ft_lstclear.o \
-		ft_lstiter.o \
-		ft_lstmap.o
+BONUS_BFILES =	ft_lstadd_back_bonus.o \
+		ft_lstadd_front_bonus.o \
+		ft_lstclear_bonus.o \
+		ft_lstdelone_bonus.o \
+		ft_lstiter_bonus.o \
+		ft_lstlast_bonus.o \
+	 	ft_lstnew_bonus.o \
+		ft_lstsize_bonus.o
+		
+SRCALL = $(SRC) $(BONUS_SRC)
+
+OBJS = ${SRC:.c=.o}
+
+OBJSALL = ${SRCALL:.c=.o}
+
+NAME = libft.a
+
+CC = gcc
+
+FLAGS = -Wall -Wextra -Werror -I ./
+
+.c.o:
+	$(CC) $(FLAGS) -c $< -o ${<:.c=.o}
 
 all: $(NAME)
 
-$(NAME) : $(BFILES)
-	ar rc $(NAME) $(BFILES)
-
-bonus : $(BONUS_BFILES)
-	ar rc $(NAME) $(BONUS_BFILES)
+$(NAME) : $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 clean:
-	/bin/rm -f $(BFILES)
+	rm -f $(OBJSALL)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
+
+bonus: $(OBJSALL)
+	ar rcs $(NAME) $(OBJSALL)

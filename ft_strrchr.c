@@ -13,9 +13,9 @@
 #include "libft.h"
 //#include <stdio.h>
 
-size_t	ftft_strlen(const char *s, unsigned char c)
+static int	ftft_strlen(const char *s, unsigned char c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (c != '\0')
@@ -35,7 +35,7 @@ size_t	ftft_strlen(const char *s, unsigned char c)
 	return (i);
 }
 
-int	ft_check_other_c(char *str, unsigned char c)
+static int	ft_check_other_c(char *str, unsigned char c)
 {
 	int	i;
 

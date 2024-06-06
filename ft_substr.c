@@ -13,19 +13,9 @@
 #include "libft.h"
 //#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+static size_t	ft_calc(char const *str, unsigned int start, size_t len)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-int	ft_calc(char const *str, unsigned int start, size_t len)
-{
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (len == 1)
@@ -38,18 +28,18 @@ int	ft_calc(char const *str, unsigned int start, size_t len)
 	return (i);
 }
 
-char	*ft_gen(char *newstr, char const *str, unsigned int start, size_t len)
+static char	*ft_gen(char *newstr, char const *str, unsigned int s, size_t len)
 {
 	size_t	i;
 	size_t	strlen;
 
 	i = 0;
 	strlen = ft_strlen(str);
-	while (start < strlen && i < len)
+	while (s < strlen && i < len)
 	{
-		newstr[i] = str[start];
+		newstr[i] = str[s];
 		i++;
-		start++;
+		s++;
 	}
 	newstr[i] = '\0';
 	return (newstr);

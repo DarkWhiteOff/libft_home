@@ -13,7 +13,7 @@
 #include "libft.h"
 //#include <stdio.h>
 
-char	*ft_strcat(char *dest, char *src)
+static char	*ft_strcat(char *dest, char *src)
 {
 	int	i;
 	int	j;
@@ -30,16 +30,6 @@ char	*ft_strcat(char *dest, char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)

@@ -13,11 +13,6 @@
 #include "libft.h"
 //#include <stdio.h>
 
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
 void	ft_putendl_fd(char *str, int fd)
 {
 	int	i;

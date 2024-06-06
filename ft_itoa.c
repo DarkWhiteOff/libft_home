@@ -13,7 +13,7 @@
 #include "libft.h"
 //#include <stdio.h>
 
-int	ft_count(int n)
+static int	ft_count(int n)
 {
 	int	count;
 
@@ -35,7 +35,7 @@ int	ft_count(int n)
 	return (count);
 }
 
-char	*ft_min(char *str)
+static char	*ft_min(char *str)
 {
 	str[0] = '-';
 	str[1] = '2';

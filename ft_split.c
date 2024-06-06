@@ -13,7 +13,7 @@
 #include "libft.h"
 //#include <stdio.h>
 
-unsigned int	ft_count_double_array(char const *s, char c)
+static unsigned int	ft_count_double_array(char const *s, char c)
 {
 	int					i;
 	unsigned int		count;
@@ -38,7 +38,7 @@ unsigned int	ft_count_double_array(char const *s, char c)
 	return (count);
 }
 
-char	**ft_free(char **array, int i)
+static char	**ft_free(char **array, int i)
 {
 	while (i > 0)
 	{
@@ -49,7 +49,7 @@ char	**ft_free(char **array, int i)
 	return (NULL);
 }
 
-void	ft_count_simple_array(char const *s, char c, int *temp, int *temp2)
+static void	ft_count_simple_array(char const *s, char c, int *temp, int *temp2)
 {
 	*temp = 0;
 	while (s[*temp2] != '\0' && s[*temp2] == c)
@@ -61,7 +61,7 @@ void	ft_count_simple_array(char const *s, char c, int *temp, int *temp2)
 	}
 }
 
-void	ft_fill_array(char *array, char const *s, char c, int *temp2)
+static void	ft_fill_array(char *array, char const *s, char c, int *temp2)
 {
 	int	i;
 	int	z;

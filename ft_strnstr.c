@@ -13,16 +13,6 @@
 #include "libft.h"
 //#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
 char	*ft_strnstr(const char *str, const char *tofind, size_t n)
 {
 	size_t	i;
